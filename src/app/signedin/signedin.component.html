@@ -1,0 +1,25 @@
+<mat-toolbar color="primary" >
+  <mat-toolbar-row >
+      <img src="assets/smallLogo.PNG" class="image">
+        <button routerLink="/signedin" mat-button style="font-size: x-large;">
+        Makerspace Management
+        </button>
+  </mat-toolbar-row>
+</mat-toolbar> 
+
+<mat-tab-group (selectedTabChange)="onTabChanged();">
+    <mat-tab class='c1' label="Your Spaces"> 
+      <app-new-viewspaces *ngIf="this.viewEnabled"></app-new-viewspaces>
+    </mat-tab>
+    <mat-tab class='c1' label="Create a Space"> 
+      <app-create-space></app-create-space>
+    </mat-tab>
+    <mat-tab class='c1'  label="Join a Space"> 
+      <app-join-space></app-join-space>  
+    </mat-tab>
+    <mat-tab class='c1' label="Your Account">
+      <app-account-management></app-account-management>  
+    </mat-tab>
+      
+  </mat-tab-group>
+  

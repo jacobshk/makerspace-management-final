@@ -1,0 +1,146 @@
+<div fxLayout = "row" class = "par">
+        <div fxLayout = "column">
+            <mat-card class="cal">
+                <mat-form-field appearance="fill">
+                    <mat-label>Enter a date!</mat-label>
+                    <input matInput [matDatepickerFilter]="dateFilter" [matDatepicker]="picker" [min]="minDate" [max]="maxDate"
+                         (dateInput)="dateSelected($event)">
+                    <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+                    <mat-datepicker #picker></mat-datepicker>
+                </mat-form-field>
+            </mat-card>
+            <mat-card class="cal" *ngIf="selectedDate">
+                <div *ngIf="hasMachines">
+                    <mat-card-title>
+                        Create a Reservation!
+
+                    </mat-card-title>
+                    <mat-card-content [formGroup] = "reservationFormGroup">
+                        
+                        <div fxLayout="column">
+                        <div fxLayout="row">                    
+                        <div>
+                            <mat-card-content fxLayout="column">
+                                <p>From</p>
+                                    <div fxLayout="row" >
+                                        <mat-form-field appearance="fill" style="width:20vw">
+                                            <mat-label> Opening hour</mat-label>
+                                            <mat-select formControlName="startTimeControl" required>
+                                                <mat-option value="1" class="op">1</mat-option>
+                                                <mat-option value ="2" class="op">2</mat-option>
+                                                <mat-option value ="3" class="op">3</mat-option>
+                                                <mat-option value ="4" class="op">4</mat-option>
+                                                <mat-option value ="5" class="op">5</mat-option>
+                                                <mat-option value ="6" class="op">6</mat-option>
+                                                <mat-option value ="7" class="op">7</mat-option>
+                                                <mat-option value ="8" class="op">8</mat-option>
+                                                <mat-option value ="9" class="op">9</mat-option>
+                                                <mat-option value ="10" class="op">10</mat-option>
+                                                <mat-option value ="11" class="op">11</mat-option>
+                                                <mat-option value ="12" class="op">12</mat-option>
+                                            </mat-select>
+                                        </mat-form-field>
+                                        <mat-form-field appearance="fill" style="width:9vw">
+                                            <mat-label> AM or PM?</mat-label>
+                                            <mat-select formControlName="AMPMControlS" >
+                                                <mat-option value="1" class="op">AM</mat-option>
+                                                <mat-option value="2" class="op">PM</mat-option>
+                                            </mat-select>
+                                        </mat-form-field>
+                                    </div>
+                                    <div>
+                                        <p>To</p>
+                                    <div fxLayout="row" >
+                                        <mat-form-field appearance="fill" style="width:20vw">
+                                            <mat-label> Closing hour</mat-label>
+                                            <mat-select formControlName="endTimeControl" required>
+                                                <mat-option value="1" class="op">1</mat-option>
+                                                <mat-option value ="2" class="op">2</mat-option>
+                                                <mat-option value ="3" class="op">3</mat-option>
+                                                <mat-option value ="4" class="op">4</mat-option>
+                                                <mat-option value ="5" class="op">5</mat-option>
+                                                <mat-option value ="6" class="op">6</mat-option>
+                                                <mat-option value ="7" class="op">7</mat-option>
+                                                <mat-option value ="8" class="op">8</mat-option>
+                                                <mat-option value ="9" class="op">9</mat-option>
+                                                <mat-option value ="10" class="op">10</mat-option>
+                                                <mat-option value ="11" class="op">11</mat-option>
+                                                <mat-option value ="12" class="op">12</mat-option>
+                                            </mat-select>
+                                        </mat-form-field>
+                                        <mat-form-field appearance="fill" style="width:9vw">
+                                            <mat-label> AM or PM?</mat-label>
+                                            <mat-select formControlName="AMPMControlE" >
+                                                <mat-option value="1" class="op">AM</mat-option>
+                                                <mat-option value="2" class="op">PM</mat-option>
+                                            </mat-select>
+                                        </mat-form-field>
+                                    </div>
+                                    </div>
+                            </mat-card-content>
+                        </div>
+                        </div>
+
+                            Choose a machine!
+                                <mat-form-field appearance="fill" style="width:20vw">
+                                    <mat-label> Machine name</mat-label>
+                                    <mat-select formControlName="selectedMachineControl"  required>
+                                <mat-option *ngFor="let mac of machine" [value]='mac' class="op">{{mac}}</mat-option>
+                                </mat-select>
+                                </mat-form-field>
+                    </div>
+                    </mat-card-content>
+                <mat-card-actions>
+
+                    <button mat-raised-button (click)="createRes()">Create Reservation!</button>
+                </mat-card-actions>
+            </div>
+            <div *ngIf="!hasMachines">
+                This space has no machines, you cannot make a reservation!
+            </div>
+            </mat-card>
+        </div>
+        <div fxLayout="column" *ngIf="selectedDate">
+            <div fxLayout="row">
+                <mat-card *ngIf="hasResRestrictions" style="margin-bottom:5vh;">
+                    Reservation Restrictions:
+                    <p>Must be at least {{minResLength}} hours</p>
+                    <p>Cannot exceed {{maxResLength}} hours</p>
+                </mat-card>
+                <mat-card *ngIf="hasOpHours" style="margin-bottom:5vh;">
+                        Operating hours: from {{openHour}} {{sAP}} to {{closeHour}} {{eAP}} on {{opDays}}
+                        <p>You cannot make a reservation outside of the specified business hours!</p> 
+                </mat-card>
+            </div>
+            
+            <div>  
+                <mat-card class='content'*ngIf="selectedDate">
+                    <mat-card-title>
+                        Reservations on {{currSelectedDate}}
+                    </mat-card-title>
+
+                    <div *ngIf="!hasReservations">
+                        <mat-card-title>
+                            <h4>
+                                No reservations yet!
+                            </h4>
+                        </mat-card-title>
+                    </div>
+                    <div *ngIf="hasReservations">
+                        <div *ngFor="let r of currDateReservations"style="margin-bottom:10vh;" >
+                            <mat-card > 
+                                <p>{{r.machine}}</p>
+                                <p style="font-style: italic;"> {{r.start}} - {{r.end}} </p>
+                                <mat-card-actions *ngIf="(r.user == currEmail)||(canEditRes)">
+                                    <button mat-raised-button (click)="editReservation(r)">Edit</button>
+                                </mat-card-actions>
+                            </mat-card>
+                            <mat-divider style="margin-top:5vh"></mat-divider>
+                        </div>
+                    </div>
+
+                </mat-card>
+        </div>
+    </div>
+
+</div> 

@@ -1,0 +1,23 @@
+<mat-card>
+    <form [formGroup]="timeControl">
+        <div style="margin-left:10vw;">
+            <mat-card-content >
+                    <p>Minimum reservation length?</p>
+                        <mat-form-field appearance="fill" style="width:20vw">
+                            <input matInput required formControlName="minControl"  text>
+                            <mat-label> Number of hours.</mat-label>
+                        </mat-form-field>
+                </mat-card-content>
+                <mat-card-content >
+                    <p>Maximum reservation length?</p>
+                    <mat-form-field appearance="fill" style="width:20vw">
+                        <input matInput required formControlName="maxControl"  text>
+                        <mat-label> Number of hours.</mat-label>
+                    </mat-form-field>
+            </mat-card-content>
+            <mat-card-content>
+                <button mat-raised-button (click)="saveTime()">Save changes </button>
+            </mat-card-content>
+        </div>
+</form>        
+</mat-card>

@@ -1,0 +1,11 @@
+{
+  "targets": {
+    "makerspace-6f30e": {
+      "hosting": {
+        "makerspace": [
+          "makerspace-6f30e"
+        ]
+      }
+    }
+  }
+}

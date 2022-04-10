@@ -1,0 +1,58 @@
+<mat-card>
+    <mat-card-title>Owned spaces</mat-card-title>
+    <div fxLayout="row wrap"  *ngIf = "this.ownsSpaces" class="content">
+        <div *ngFor = "let C of spacesCreated">
+            <mat-card class='coo'>
+                <mat-card-content>
+                    <mat-card-title>
+                        {{C.spaceName}}
+                    </mat-card-title>
+                    <mat-card-subtitle>
+                        host: {{C.hostName}}
+                    </mat-card-subtitle>
+                        <img mat-card-image src="assets/maker.PNG" class="wer">
+                    <mat-card-actions>
+                        <button mat-raised-button (click)='viewOwnedSpace(C)'>View</button>
+                    </mat-card-actions>
+                </mat-card-content>
+            </mat-card>
+        </div>
+    </div>
+    <div fxLayout="row wrap" *ngIf = "!this.ownsSpaces" class="content">
+            <mat-card class='coo'>
+                <mat-card-content>
+                    <mat-card-title>
+                        <h4>You don't own any spaces!</h4>
+                    </mat-card-title>
+                </mat-card-content>
+            </mat-card>
+    </div>
+</mat-card>
+<br>
+<mat-card>
+    <mat-card-title>Joined spaces</mat-card-title>
+    <div fxLayout="row wrap"  *ngIf = "this.joinsSpaces" class="content">
+        <div *ngFor = "let card of spacesJoined">
+            <mat-card class='coo'>
+                <mat-card-content>
+                    <mat-card-title>
+                        {{card.spaceName}}
+                    </mat-card-title>
+                    <img mat-card-image src="assets/maker.PNG" class="wer">
+                    <mat-card-actions>
+                        <button mat-raised-button (click)='viewJoinedSpace(card)'>View</button>
+                    </mat-card-actions>
+                </mat-card-content>
+            </mat-card>
+        </div>
+    </div>
+    <div fxLayout="row wrap" *ngIf = "!this.joinsSpaces" class="content">
+            <mat-card class='coo'>
+                <mat-card-content>
+                    <mat-card-title>
+                        <h4>You haven't joined any spaces!</h4>
+                    </mat-card-title>
+                </mat-card-content>
+            </mat-card>
+    </div>
+</mat-card>

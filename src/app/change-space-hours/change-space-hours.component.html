@@ -1,0 +1,83 @@
+<mat-card>
+    <form [formGroup] ='timeFormGroup'>
+
+    <mat-card-content fxLayout="column" class="flex">
+
+            <p>What days of the week is your space open?</p>
+                <mat-form-field appearance="fill" style="width:20vw">
+                    <mat-label> Choose a day of the week!</mat-label>
+                    <mat-select color="primary"  formControlName="weekControl" required multiple>
+                        <mat-option value="1" class="op">Monday</mat-option>
+                        <mat-option value ="2" class="op">Tuesday</mat-option>
+                        <mat-option value ="3" class="op">Wednesday</mat-option>
+                        <mat-option value ="4" class="op">Thursday</mat-option>
+                        <mat-option value ="5" class="op">Friday</mat-option>
+                        <mat-option value ="6" class="op">Saturday</mat-option>
+                        <mat-option value ="7" class="op">Sunday</mat-option>
+                    </mat-select>
+                </mat-form-field>
+        </mat-card-content>
+        <mat-card-content fxLayout="column">
+            <p>What hour does your space open?</p>
+                <div fxLayout="row" >
+                    <mat-form-field appearance="fill" style="width:20vw">
+                        <mat-label> Opening hour</mat-label>
+                        <mat-select formControlName="startTimeControl" required>
+                            <mat-option value="1" class="op">1</mat-option>
+                            <mat-option value ="2" class="op">2</mat-option>
+                            <mat-option value ="3" class="op">3</mat-option>
+                            <mat-option value ="4" class="op">4</mat-option>
+                            <mat-option value ="5" class="op">5</mat-option>
+                            <mat-option value ="6" class="op">6</mat-option>
+                            <mat-option value ="7" class="op">7</mat-option>
+                            <mat-option value ="8" class="op">8</mat-option>
+                            <mat-option value ="9" class="op">9</mat-option>
+                            <mat-option value ="10" class="op">10</mat-option>
+                            <mat-option value ="11" class="op">11</mat-option>
+                            <mat-option value ="12" class="op">12</mat-option>
+                        </mat-select>
+                    </mat-form-field>
+                    <mat-form-field appearance="fill" style="width:9vw">
+                        <mat-label> AM or PM?</mat-label>
+                        <mat-select formControlName="AMPMControlS" >
+                            <mat-option value="1" class="op">AM</mat-option>
+                            <mat-option value="2" class="op">PM</mat-option>
+                        </mat-select>
+                    </mat-form-field>
+                </div>
+        </mat-card-content>
+            <mat-card-content fxLayout="column">
+                <p>What hour does your space close?</p>
+                <div fxLayout="row" >
+                    <mat-form-field appearance="fill" style="width:20vw">
+                        <mat-label> Closing hour</mat-label>
+                        <mat-select formControlName="endTimeControl" required>
+                            <mat-option value="1" class="op">1</mat-option>
+                            <mat-option value ="2" class="op">2</mat-option>
+                            <mat-option value ="3" class="op">3</mat-option>
+                            <mat-option value ="4" class="op">4</mat-option>
+                            <mat-option value ="5" class="op">5</mat-option>
+                            <mat-option value ="6" class="op">6</mat-option>
+                            <mat-option value ="7" class="op">7</mat-option>
+                            <mat-option value ="8" class="op">8</mat-option>
+                            <mat-option value ="9" class="op">9</mat-option>
+                            <mat-option value ="10" class="op">10</mat-option>
+                            <mat-option value ="11" class="op">11</mat-option>
+                            <mat-option value ="12" class="op">12</mat-option>
+                        </mat-select>
+                    </mat-form-field>
+                    <mat-form-field appearance="fill" style="width:9vw">
+                        <mat-label> AM or PM?</mat-label>
+                        <mat-select formControlName="AMPMControlE" >
+                            <mat-option value="1" class="op">AM</mat-option>
+                            <mat-option value="2" class="op">PM</mat-option>
+                        </mat-select>
+                    </mat-form-field>
+                </div>
+            </mat-card-content>
+    <mat-card-actions>
+        <button mat-raised-button (click)="saveHours()"> Save Hours </button>
+    </mat-card-actions>
+</form>        
+
+</mat-card>

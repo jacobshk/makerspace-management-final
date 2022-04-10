@@ -1,0 +1,8 @@
+
+<div mat-dialog-content>
+  <p>Are you sure you want to delete your account? This will also delete all spaces you have created.</p>
+</div>
+<div mat-dialog-actions>
+  <button mat-button mat-dialog-close>Nevermind</button>
+  <button mat-button [mat-dialog-close]="true"(click)="confirmDelete()">Yes, I would like to permanently delete my account</button>
+</div>

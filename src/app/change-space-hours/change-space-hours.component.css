@@ -1,0 +1,40 @@
+.op{
+    color:black;
+  }
+.car{
+    width:40vw;
+    height:30vh;
+    margin-right:2vw;
+    margin-left:2vw;
+    margin-top:4vh;
+}
+
+.bcar{
+    width:40vw;
+    height:45vh;
+    margin-right:2vw;
+    margin-left:2vw;
+    margin-top:4vh;
+    margin-bottom:5vh;
+}
+.bcars{
+    width:40vw;
+    margin-right:2vw;
+    margin-left:2vw;
+    margin-top:4vh;
+    margin-bottom:5vh;
+}
+
+.flex {
+    flex: 1 1 auto;
+ }    
+ 
+ .scrollable {
+     overflow: auto;
+     box-sizing: border-box;
+     position: absolute;
+     right: 0;
+     top: 0;
+     width: 100%;
+     height: 100%;
+ }

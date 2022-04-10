@@ -1,0 +1,35 @@
+
+    <form [formGroup] ='spaceFormGroup'>
+            <mat-card >
+                <mat-card-title>Create a Space</mat-card-title>
+                <mat-card-content>
+                    <mat-form-field >
+                        <mat-label>Name your space</mat-label>
+                        <input matInput type="text" id="nameControl" formControlName="nameControl" required>
+                    </mat-form-field>
+                </mat-card-content>
+                <mat-card-content>
+                    <mat-form-field >
+                        <mat-label>Your space's unique ID</mat-label>
+                        <input matInput type="text" id="idControl" formControlName="idControl" readonly>
+                    </mat-form-field>
+                </mat-card-content>
+                <mat-card-actions>
+                    <button mat-raised-button (click)='generateID()'>Generate ID</button>
+                </mat-card-actions>
+                <mat-form-field >
+                    <mat-label>Your email</mat-label>
+                    <input matInput type="email" id="hostControl" formControlName="hostControl" readonly>
+                </mat-form-field>
+                <mat-card-actions>
+                    <div>
+                        <button mat-raised-button   (click)='onSubmit()'>Create Space</button>
+                    </div> 
+                </mat-card-actions>
+ 
+                    <mat-card-actions>
+                        <div>
+                    </div> 
+                </mat-card-actions>
+            </mat-card>
+        </form>        

@@ -1,0 +1,91 @@
+<mat-toolbar color="primary" >
+    <mat-toolbar-row >
+        <img src="assets/smallLogo.PNG" class="image">
+        <div class="p">
+          Makerspace Management
+        </div>
+        <div class="butt">
+          <button mat-raised-button class="t" (click)='login()'> Login </button>
+          <button mat-raised-button class="t" (click)='signup()'> Signup </button>
+      </div>
+    </mat-toolbar-row>
+  </mat-toolbar> 
+<div fxLayoutAlign="center center" style="background: black; height: 12vh;">
+    <p class="adsf"> Welcome to Makerspace Management! </p>
+</div>
+  <div fxLayout="column" fxLayoutAlign="center center">
+    <img src="assets/makerspace.jpg" style="width : 60vw; height:auto;">
+</div>
+
+<div>
+    <div fxLayout="row" fxLayoutAlign="center" class="d">
+        <img src="assets/machine.PNG" class="ig">
+        <div fxLayout="column">
+            <div>
+                <p class="desc"> What is a makerspace?</p>
+            </div>
+            <div class="text">
+                <p>Libraries and schools often have public "makerspaces"
+                    These are rooms that contain machines, such as 3D printers or laser engravers,
+                    freely available for public use.
+                </p>
+            </div>
+        </div>
+    </div>
+</div>
+<div>
+    <div>
+        <hr class="line">
+    </div>
+</div>
+<div>
+    <div fxLayout="row" fxLayoutAlign="center center" style="padding-top:5vh; padding-bottom:10vh">
+        <div fxLayout="column">
+            <div>
+                <p class="desc"> What does Makerspace Management do?</p>
+            </div>
+            <div>
+                <p class="atext">
+                    Makerspace Management is a free to use website designed to aid in management of makerspaces.
+                    Users can use MM for all of their makerspace's logistical needs, from the proprietary reservation
+                    system, to the user management system, and beyond!
+                    
+                </p>
+            </div>
+        </div>
+        <img src="assets/calendar.PNG" class="aig">
+    </div>
+</div>
+<div>
+    <div>
+        <hr class="line">
+    </div>
+</div>
+<div>
+    <div fxLayout="row" fxLayoutAlign="center center" style="padding-top:10vh">
+        <img src="assets/person.png" class="big">
+        <div fxLayout="column">
+            <div>
+                <p class="desc"> How can I get started with Makerspace Management?</p>
+            </div>
+            <div>
+                <p class="btext">
+                    Makerspace Management is completely free to use! Use the below buttons to get started.                    
+                </p>
+            </div>
+        </div>
+    </div>
+</div>
+<div>
+    <div>
+        <hr class="line">
+    </div>
+</div>
+<div fxLayout="row" fxLayoutAlign="center center" fxLayoutGap="10vw" > 
+    <button mat-raised-button class="but" (click)="login()"> Create a new account</button>
+    <p style="font-size:x-large;"> or </p>
+    <button mat-raised-button class="but" color="primary" (click)="login()"> Log into an existing account</button>
+</div>
+<div>
+    
+</div> 

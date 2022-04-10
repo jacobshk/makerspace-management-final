@@ -1,0 +1,10 @@
+<mat-form-field >
+    <mat-label>New title</mat-label>
+    <input matInput type="text" id="joinControl" [formControl]="titleControl">
+</mat-form-field>
+<mat-form-field >
+
+    <mat-label>New description</mat-label>
+    <input matInput type="text" id="joinControl" [formControl]="descControl">
+</mat-form-field>
+    <button mat-raised-button (click)="saveMachine()">Save changes</button>

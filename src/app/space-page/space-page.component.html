@@ -1,0 +1,24 @@
+<mat-toolbar color="primary" >
+    <mat-toolbar-row >
+        <img src="assets/smallLogo.PNG" class="image">
+        <button routerLink="/signedin" mat-button style="font-size: x-large;">
+            Makerspace Management
+            </button>
+    </mat-toolbar-row>
+  </mat-toolbar> 
+<mat-tab-group>
+    <mat-tab label="Calendar">
+        <mat-card>
+                <app-machine-calendar></app-machine-calendar>
+        </mat-card>
+    </mat-tab>
+
+    <mat-tab label="Machines">
+        <mat-card>
+            <app-machine-page></app-machine-page>
+        </mat-card>
+    </mat-tab>
+    <mat-tab label="Space Information">
+        <app-space-info></app-space-info>
+    </mat-tab>
+  </mat-tab-group>

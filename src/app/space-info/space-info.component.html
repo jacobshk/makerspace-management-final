@@ -1,0 +1,89 @@
+<div fxLayout="column">
+        <mat-card class="cart">
+            <mat-card-title>Space Name: {{currSpaceName}}</mat-card-title>
+            <mat-card-subtitle>SpaceID: {{currID}}</mat-card-subtitle>
+            <mat-card-actions >
+                <button *ngIf="hasPermission" mat-raised-button (click)="renameSpace()">
+                    Rename
+                </button>  
+            </mat-card-actions>
+        </mat-card>
+
+    <div fxLayout="row">
+        <div fxLayout="column">
+            <mat-card class="car">
+                <mat-card-title> Space Settings</mat-card-title>
+                <p> Current Owner: {{currOwner}} </p>
+                <button *ngIf="hasPermission" mat-raised-button (click)="transferOwner()" style="margin-right:5vw;"> Transfer Ownership </button>
+                <button *ngIf="hasPermission" mat-raised-button (click)="deleteSpace()"> Delete Space </button>
+            </mat-card>
+            <mat-card class="bcar">
+                <mat-card-title>Space Members</mat-card-title>
+            <mat-card-content>
+            <div *ngIf="hasMembers; else elseBlock">
+                <ul>
+                    <li *ngFor="let m of member ">
+                        <mat-card class="card">
+                            <mat-card-content>
+                                {{m.email}}
+                            </mat-card-content>
+                            <mat-card-actions *ngIf="hasPermission">
+                                <button mat-raised-button (click)='removePerson(m)'>Remove this member</button>
+                            </mat-card-actions>
+
+                    </mat-card>
+                    </li>  
+                </ul>
+            </div>
+            <ng-template #elseBlock>
+                <div>
+                    <ul>
+                        <li>
+                            No members  yet!
+                        </li>
+                    </ul>
+                </div>
+            </ng-template>
+            </mat-card-content>
+            </mat-card>
+            
+        </div>
+        <div>
+        <mat-card class="bcars">
+            <mat-card-title> Operating Hours</mat-card-title>
+            <div fxLayout="row">
+            <mat-card-content fxLayout="column">
+                <div *ngIf="hasOpHours">
+                    <p>Current hours: </p>
+                    <p>Open from {{startHour}} {{sAP}} to {{endHour}} {{eAP}} </p>
+                    <p>On {{opDays}} </p>
+                </div>
+                <div *ngIf="!hasOpHours" >
+                    <p *ngIf="hasPermission"> Optional. Set your space operation hours.</p>
+                    No operating hours currently set. 
+                </div>
+            <button mat-raised-button *ngIf="hasPermission" (click)="setTime()">Set hours</button>
+            </mat-card-content >
+            </div>
+        </mat-card>
+        <mat-card class="bcars">
+            <mat-card-title> Reservation Settings</mat-card-title>
+            <mat-card-content fxLayout="column" >
+                <div *ngIf="hasResConstraints">
+                        <p> Minimum Reservation Length: {{minResLength}} hours</p>
+                        <p> Maximum Reservation Length: {{maxResLength}} hours</p>
+                <button *ngIf="hasPermission" mat-raised-button (click)="setRes()">Change</button>
+            </div>
+            <div *ngIf="!hasResConstraints">
+                <p *ngIf="hasPermission"> Optional. Edit the minimum and maximum reservation duration for your space.</p>
+              <p>No reservation constraints exist yet!</p>
+            </div>
+            <div>
+                <button *ngIf="hasPermission" mat-raised-button (click)="setRes()">Set reservation constraints.</button>
+            </div>
+    
+            </mat-card-content>
+        </mat-card>
+    </div>
+    </div>
+</div>

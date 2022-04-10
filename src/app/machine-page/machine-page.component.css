@@ -1,0 +1,27 @@
+.catt {
+    height : 55vh;
+    margin-bottom : 1vw;   
+}
+.desc {
+    font-size: italic;
+}
+.content {
+    margin-right: 2vw;
+    width: 15vw;
+    height: 40vh;
+}
+.ig {
+    width: 8vw;
+    padding-left: 1vw;
+    height:auto;
+}
+.bt {
+    padding-left:10vw;
+}
+.c{ 
+    max-width:50vw;
+    max-height:8vh;
+    text-overflow: ellipsis;
+    overflow:hidden;
+    white-space:nowrap;
+}

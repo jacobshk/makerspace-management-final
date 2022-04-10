@@ -1,0 +1,49 @@
+<div fxLayout = "column" class = "par">
+    <mat-card class="top">
+        <mat-card-title >Add a machine to your space</mat-card-title>
+    </mat-card>
+
+    <div fxLayout="row">
+    <mat-card class="cLeft" [formGroup] = "machineFormGroup">
+        <mat-card-content>
+            <div>
+                <mat-label>Machine name</mat-label>
+            </div>
+            <mat-form-field>
+                <mat-label>e.g. "Ultimaker 3D Printer"</mat-label>
+                <input matInput type="text" id="machineControl" formControlName="machineControl" >
+            </mat-form-field>
+        </mat-card-content>
+        <mat-card-content>
+            <div>
+                <mat-label>Material used by machine</mat-label>
+            </div>
+            <mat-form-field>
+                <mat-label>e.g. "PLA filament" or "plywood"</mat-label>
+                <input matInput type="text" id="materialControl" formControlName="materialControl" >
+            </mat-form-field>
+        </mat-card-content>
+        <mat-card-actions>
+            <div>
+                <button mat-raised-button (click)="saveMachine()">Save Machine</button>
+            </div>
+        </mat-card-actions>
+    </mat-card>
+    <mat-card class="cRight" [formGroup] = "machineFormGroup">
+            <div>
+                <mat-label>Machine Description</mat-label>
+            </div>
+            <mat-form-field>
+                <mat-label>Provide a brief description of this machine</mat-label>
+                <textarea matInput type="text" class="t" formControlName="descControl" cols="2000">
+                    </textarea>
+            </mat-form-field>
+    </mat-card>
+    </div>
+
+    <mat-card class="bottom">
+        <mat-card-actions>
+            <button class="class1" mat-raised-button (click)="goBack()" >Back</button>
+        </mat-card-actions>
+    </mat-card>
+</div> 

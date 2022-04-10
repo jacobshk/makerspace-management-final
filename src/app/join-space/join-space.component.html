@@ -1,0 +1,17 @@
+<form>
+<mat-card>
+    <mat-card-content>
+        <mat-label>Enter a join code</mat-label>
+        </mat-card-content>
+        <mat-card-content>
+        <mat-form-field >
+            <mat-label>e.g. A1B2C3</mat-label>
+            <input matInput type="text" id="joinControl" [formControl]="joinControl">
+           
+        </mat-form-field>
+    </mat-card-content>
+    <mat-card-actions><button mat-raised-button (click)='joinSpace()'>Submit</button></mat-card-actions>
+    <mat-card-content>
+    </mat-card-content>
+</mat-card>
+</form>

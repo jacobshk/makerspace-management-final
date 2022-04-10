@@ -1,0 +1,42 @@
+    <mat-card class = "catt">
+        <mat-card-title style="padding-bottom:5vh; font-style:italic;">Space Machines</mat-card-title>
+        <div fxLayout="row wrap"  *ngIf = "this.hasMachines" >
+            <div *ngFor = 'let m of machine'>
+                <mat-card class='content'>
+                    <mat-card-title class="c">
+                            {{m.machineName}}
+                    </mat-card-title>
+                    <img mat-card-image class="ig" src="assets/machine.PNG">
+                    <mat-card-content >
+                        <div class="c">
+                            <em>
+                            {{m.description}}
+                        </em>
+                        </div>
+                    <div *ngIf='this.hostPerm'>
+                        <mat-card-actions >
+                            <button mat-raised-button (click)='delete(m)'>Delete</button>
+                            <button mat-raised-button (click)='edit(m)'>Edit</button>
+
+                        </mat-card-actions>
+                    </div>
+                </mat-card-content>
+
+                </mat-card>
+            </div>
+        </div>
+        <div fxLayout="row wrap" *ngIf = "!this.hasMachines">
+                <mat-card class='content'>
+                    <mat-card-content>
+                        <mat-card-title>
+                            <h4>No machines exist in this space yet!</h4>
+                        </mat-card-title>
+                    </mat-card-content>
+                </mat-card>
+        </div>
+    </mat-card>
+<mat-card *ngIf='this.hostPerm'>
+    <mat-card-actions >
+        <button mat-raised-button (click)='addMachines()'>Add a machine</button>
+    </mat-card-actions>
+</mat-card>

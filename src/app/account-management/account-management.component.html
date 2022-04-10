@@ -1,0 +1,14 @@
+
+<mat-card>
+    <img mat-card-sm-image src={{userPicture}}>
+    <mat-card-header>
+        <mat-card-title>Hello {{currUserName}}.</mat-card-title>  
+        <mat-card-subtitle>What would you like to do today?</mat-card-subtitle>
+      </mat-card-header>
+       <mat-card-actions>	
+        <button mat-raised-button (click)='logout()'>Logout</button>
+    </mat-card-actions>	
+    <mat-card-actions>	
+        <button mat-raised-button (click)='deleteAccount()'>Delete Account</button>
+    </mat-card-actions>	
+</mat-card>
